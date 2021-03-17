@@ -46,9 +46,9 @@ print(cd)
 
 print(cf)
 model = keras.Sequential()
-model.add(Dense(15, input_shape=(3,), activation='relu'))
-model.add(Dense(8,activation='relu'))
-model.add(Dense(1,activation='tanh'))
+model.add(Dense(15, input_shape=(3,), activation='relu',use_bias=False))
+model.add(Dense(8,activation='relu',use_bias=False))
+model.add(Dense(1,activation='tanh',use_bias=False))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
