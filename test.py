@@ -4,11 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras.layers import Dense
+import mat4py as m4p
 zad = list()
 
 f = open("data.xls", "r")
-zad_float = [[1,1],[0,1],[1,0],[0,0]]
-ych_float = [[0],[0.5],[0.5],[1]]
+zad_float = [[0,0],[1,0],[0,1],[1,1]]
+ych_float = [[1],[0.5],[0.5],[0]]
 
 
 # print(zad_float)
@@ -22,8 +23,9 @@ print(cd)
 
 print(cf)
 model = keras.Sequential()
-model.add(Dense(4, input_shape=(2,), activation='linear'))
-model.add(Dense(1,activation='sigmoid'))
+model.add(Dense(4, input_shape=(2,), activation='tanh'))
+model.add(Dense(4,activation='tanh'))
+model.add(Dense(1,activation='tanh'))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
@@ -39,11 +41,22 @@ plt.plot(log.history['loss'])
 plt.grid(True)
 plt.show()
 first_layer_weights = model.layers[0].get_weights()[0]
+np.savez('test.mat',first_layer_weights)
 first_layer_biases  = model.layers[0].get_weights()[1]
 second_layer_weights = model.layers[1].get_weights()[0]
 second_layer_biases  = model.layers[1].get_weights()[1]
-print(first_layer_weights)
-print(model.get_weights())
-otevt = input("Сохранить модель? y|n")
+
+dataW1 = {'w1' : model.layers[0].get_weights()[0].tolist()}
+dataB1 = {'b1' : model.layers[0].get_weights()[1].tolist()}
+dataW2 = {'w2' : model.layers[1].get_weights()[0].tolist()}
+dataB2 = {'b2' : model.layers[1].get_weights()[1].tolist()}
+m4p.savemat('w1.mat', dataW1)
+m4p.savemat('b1.mat', dataB1)
+m4p.savemat('w2.mat', dataW2)
+m4p.savemat('b2.mat', dataB2)
+
+#print(first_layer_weights)
+#print(model.get_weights())
+otevt = input("Сохранить модель и файлы? y|n")
 if otevt == "y":
     model.save("model01.h5")

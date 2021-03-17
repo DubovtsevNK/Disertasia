@@ -26,14 +26,14 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Sat Mar 13 20:07:06 2021
+ * Created: Tue Mar 16 21:48:09 2021
  */
 
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME pos
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
-#define NUM_INPUTS            5
+#define NUM_INPUTS            6
 /* Input Port  0 */
 #define IN_PORT_0_NAME        u0
 #define INPUT_0_WIDTH         1
@@ -119,6 +119,23 @@
 #define IN_4_FRACTIONLENGTH   9
 #define IN_4_BIAS             0
 #define IN_4_SLOPE            0.125
+/* Input Port  5 */
+#define IN_PORT_5_NAME        u5
+#define INPUT_5_WIDTH         1
+#define INPUT_DIMS_5_COL      1
+#define INPUT_5_DTYPE         real_T
+#define INPUT_5_COMPLEX       COMPLEX_NO
+#define IN_5_FRAME_BASED      FRAME_NO
+#define IN_5_BUS_BASED        0
+#define IN_5_BUS_NAME         
+#define IN_5_DIMS             1-D
+#define INPUT_5_FEEDTHROUGH   1
+#define IN_5_ISSIGNED         0
+#define IN_5_WORDLENGTH       8
+#define IN_5_FIXPOINTSCALING  1
+#define IN_5_FRACTIONLENGTH   9
+#define IN_5_BIAS             0
+#define IN_5_SLOPE            0.125
 
 #define NUM_OUTPUTS           1
 /* Output Port  0 */
@@ -140,7 +157,7 @@
 
 #define NPARAMS               0
 
-#define SAMPLE_TIME_0         0.001
+#define SAMPLE_TIME_0         0.0001
 #define NUM_DISC_STATES       0
 #define DISC_STATES_IC        [0]
 #define NUM_CONT_STATES       0
@@ -164,6 +181,7 @@ extern void pos_Outputs_wrapper(const real_T *u0,
 			const real_T *u2,
 			const real_T *u3,
 			const real_T *u4,
+			const real_T *u5,
 			real_T *y0);
 /*====================*
  * S-function methods *
@@ -225,6 +243,13 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortComplexSignal(S, 4, INPUT_4_COMPLEX);
     ssSetInputPortDirectFeedThrough(S, 4, INPUT_4_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 4, 1); /*direct input signal access*/
+
+    /* Input Port 5 */
+    ssSetInputPortWidth(S, 5, INPUT_5_WIDTH);
+    ssSetInputPortDataType(S, 5, SS_DOUBLE);
+    ssSetInputPortComplexSignal(S, 5, INPUT_5_COMPLEX);
+    ssSetInputPortDirectFeedThrough(S, 5, INPUT_5_FEEDTHROUGH);
+    ssSetInputPortRequiredContiguous(S, 5, 1); /*direct input signal access*/
 
 
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
@@ -300,9 +325,10 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T *u2 = (real_T *) ssGetInputPortRealSignal(S, 2);
     const real_T *u3 = (real_T *) ssGetInputPortRealSignal(S, 3);
     const real_T *u4 = (real_T *) ssGetInputPortRealSignal(S, 4);
+    const real_T *u5 = (real_T *) ssGetInputPortRealSignal(S, 5);
     real_T *y0 = (real_T *) ssGetOutputPortRealSignal(S, 0);
 
-    pos_Outputs_wrapper(u0, u1, u2, u3, u4, y0);
+    pos_Outputs_wrapper(u0, u1, u2, u3, u4, u5, y0);
 
 }
 
