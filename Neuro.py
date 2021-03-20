@@ -50,7 +50,7 @@ model.add(Dense(15, input_shape=(3,), activation='relu',use_bias=False))
 model.add(Dense(8,activation='relu',use_bias=False))
 model.add(Dense(1,activation='tanh',use_bias=False))
 
-model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
+    model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
 log = model.fit(cd, cf, batch_size=32, epochs=10)
 
