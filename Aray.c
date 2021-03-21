@@ -18,7 +18,7 @@ void WriteFunc()
 {
 	if(!otf)
 	{
-		fp = fopen("data.xls", "w+");
+		fp = fopen("data1faze.xls", "w+");
 		otf=1;
 	}
 	
