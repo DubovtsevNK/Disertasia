@@ -40,9 +40,9 @@ void pos_Outputs_wrapper(const real_T *u0,
 			real_T *y0)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
-a=u0[0];
-b=u1[0];
-c=u2[0];
+Uz=u0[0];
+U=u1[0];
+nc=u2[0];
 cheak=u3[0];
 dU=u4[0];
 deltaU=u5[0];

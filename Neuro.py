@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Dense
 import mat4py as m4p
 zad = list()
 
-f = open("data1faze.xls", "r")
+f = open("data1faze3seti.xls", "r")
 zad_float = []
 ych_float: List[Union[Union[List[Any], list], Any]] = []
 for line in f:
@@ -52,7 +52,7 @@ model.add(Dense(1,activation='tanh',use_bias=False))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
-log = model.fit(cd, cf, batch_size=32, epochs=100)
+log = model.fit(cd, cf, batch_size=32, epochs=10)
 
 plt.plot(log.history['loss'])
 plt.grid(True)

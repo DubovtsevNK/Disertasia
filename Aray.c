@@ -4,10 +4,10 @@
 FILE *fp;
 
 float deltaU=0;
-float a=0;
+float Uz=0;
 int otf=0;
-float b=0;
-float c=0;
+float U=0;
+float nc=0;
 float cheak=0;
 float dU=0;
 float old_U=0;
@@ -18,23 +18,23 @@ void WriteFunc()
 {
 	if(!otf)
 	{
-		fp = fopen("data1faze.xls", "w+");
+		fp = fopen("data1faze3seti.xls", "w+");
 		otf=1;
 	}
 	
-	a=a/1;
-	b=b/2;
-	c=c/5;
-	dU=dU/45;
-	
+	Uz=Uz/100;
+	U=U/105;
+	nc=nc/3700;
+	dU=dU/6.3;
+	deltaU=deltaU/100;
 	if(cheak>=1)
 	fclose(fp);
 	else
 	{
 		
-	fprintf(fp,"%f;",a);
-	fprintf(fp,"%f;",b);
-	fprintf(fp,"%f;",c);
+	fprintf(fp,"%f;",Uz);
+	fprintf(fp,"%f;",U);
+	fprintf(fp,"%f;",nc);
 	fprintf(fp,"%f;",old_U);
 	fprintf(fp,"%f;",dU);
 	fprintf(fp,"%f;",cheak);
@@ -43,7 +43,7 @@ void WriteFunc()
 	
 	}
 	old_U2=old_U;
-	old_U=c;
+	old_U=nc;
 	
 
 }
