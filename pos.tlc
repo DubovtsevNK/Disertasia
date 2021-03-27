@@ -1,5 +1,5 @@
 %% File : pos.tlc
-%% Created : Thu Mar 25 19:26:33 2021
+%% Created : Sat Mar 27 19:25:13 2021
 %%
 %% Description: 
 %%   Simulink Coder wrapper functions interface generated for 
@@ -36,6 +36,7 @@
 			const real_T *u3,
 			const real_T *u4,
 			const real_T *u5,
+			const real_T *u6,
 			real_T *y0);
 
     extern void pos_Terminate_wrapper(void);
@@ -62,8 +63,9 @@
   %assign pu3 = LibBlockInputSignalAddr(3, "", "", 0)
   %assign pu4 = LibBlockInputSignalAddr(4, "", "", 0)
   %assign pu5 = LibBlockInputSignalAddr(5, "", "", 0)
+  %assign pu6 = LibBlockInputSignalAddr(6, "", "", 0)
   %assign py0 = LibBlockOutputSignalAddr(0, "", "", 0)
-  pos_Outputs_wrapper(%<pu0>, %<pu1>, %<pu2>, %<pu3>, %<pu4>, %<pu5>, %<py0>);
+  pos_Outputs_wrapper(%<pu0>, %<pu1>, %<pu2>, %<pu3>, %<pu4>, %<pu5>, %<pu6>, %<py0>);
   %%
 %endfunction
 

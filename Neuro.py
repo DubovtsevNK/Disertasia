@@ -19,11 +19,12 @@ for element_list in zad:
     list_fl.append(float(element_list[0]))#)    #0-UZ\1
     list_fl.append(float(element_list[1]))#/10)   #1-U\2
     #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
-    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    list_fl.append(float(element_list[3]))  # /35) #3 - oldU
     #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
     list_fl.append(float(element_list[5]))  # /35) #5 - t
     list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
     #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
     list_ych.append(float(element_list[2]))#/35)   #2 - Unc
     # for element in element_list:
     #     list_fl.append(float(element))
@@ -31,6 +32,31 @@ for element_list in zad:
     ych_float.append(list_ych)
 #zad_float.append([1,0,0,0])
 #ych_float.append([0.8])
+
+f.close()
+zad = list()
+f = open("data1faze3setiR05.xls", "r")
+
+for line in f:
+    zad.append((line.strip().split(";")))
+
+for element_list in zad:
+    list_fl = []
+    list_ych = []
+    list_fl.append(float(element_list[0]))#)    #0-UZ\1
+    list_fl.append(float(element_list[1]))#/10)   #1-U\2
+    #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
+    list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
+    list_fl.append(float(element_list[5]))  # /35) #5 - t
+    list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
+    #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
+    list_ych.append(float(element_list[2]))#/35)   #2 - Unc
+    # for element in element_list:
+    #     list_fl.append(float(element))
+    zad_float.append(list_fl)
+    ych_float.append(list_ych)
 
 f.close()
 
@@ -46,8 +72,8 @@ print(cd)
 
 print(cf)
 model = keras.Sequential()
-model.add(Dense(10, input_shape=(4,), activation='sigmoid',use_bias=False))
-model.add(Dense(5,activation='sigmoid',use_bias=False))
+model.add(Dense(20, input_shape=(6,), activation='sigmoid',use_bias=False))
+model.add(Dense(15,activation='sigmoid',use_bias=False))
 model.add(Dense(1,activation='tanh',use_bias=False))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))

@@ -26,14 +26,14 @@
  * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
  *  ------------------------------------------------------------------------- 
  *
- * Created: Thu Mar 25 19:26:33 2021
+ * Created: Sat Mar 27 19:25:13 2021
  */
 
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME pos
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* %%%-SFUNWIZ_defines_Changes_BEGIN --- EDIT HERE TO _END */
-#define NUM_INPUTS            6
+#define NUM_INPUTS            7
 /* Input Port  0 */
 #define IN_PORT_0_NAME        u0
 #define INPUT_0_WIDTH         1
@@ -136,6 +136,23 @@
 #define IN_5_FRACTIONLENGTH   9
 #define IN_5_BIAS             0
 #define IN_5_SLOPE            0.125
+/* Input Port  6 */
+#define IN_PORT_6_NAME        u6
+#define INPUT_6_WIDTH         1
+#define INPUT_DIMS_6_COL      1
+#define INPUT_6_DTYPE         real_T
+#define INPUT_6_COMPLEX       COMPLEX_NO
+#define IN_6_FRAME_BASED      FRAME_NO
+#define IN_6_BUS_BASED        0
+#define IN_6_BUS_NAME         
+#define IN_6_DIMS             1-D
+#define INPUT_6_FEEDTHROUGH   1
+#define IN_6_ISSIGNED         0
+#define IN_6_WORDLENGTH       8
+#define IN_6_FIXPOINTSCALING  1
+#define IN_6_FRACTIONLENGTH   9
+#define IN_6_BIAS             0
+#define IN_6_SLOPE            0.125
 
 #define NUM_OUTPUTS           1
 /* Output Port  0 */
@@ -182,6 +199,7 @@ extern void pos_Outputs_wrapper(const real_T *u0,
 			const real_T *u3,
 			const real_T *u4,
 			const real_T *u5,
+			const real_T *u6,
 			real_T *y0);
 /*====================*
  * S-function methods *
@@ -250,6 +268,13 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetInputPortComplexSignal(S, 5, INPUT_5_COMPLEX);
     ssSetInputPortDirectFeedThrough(S, 5, INPUT_5_FEEDTHROUGH);
     ssSetInputPortRequiredContiguous(S, 5, 1); /*direct input signal access*/
+
+    /* Input Port 6 */
+    ssSetInputPortWidth(S, 6, INPUT_6_WIDTH);
+    ssSetInputPortDataType(S, 6, SS_DOUBLE);
+    ssSetInputPortComplexSignal(S, 6, INPUT_6_COMPLEX);
+    ssSetInputPortDirectFeedThrough(S, 6, INPUT_6_FEEDTHROUGH);
+    ssSetInputPortRequiredContiguous(S, 6, 1); /*direct input signal access*/
 
 
     if (!ssSetNumOutputPorts(S, NUM_OUTPUTS)) return;
@@ -326,9 +351,10 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     const real_T *u3 = (real_T *) ssGetInputPortRealSignal(S, 3);
     const real_T *u4 = (real_T *) ssGetInputPortRealSignal(S, 4);
     const real_T *u5 = (real_T *) ssGetInputPortRealSignal(S, 5);
+    const real_T *u6 = (real_T *) ssGetInputPortRealSignal(S, 6);
     real_T *y0 = (real_T *) ssGetOutputPortRealSignal(S, 0);
 
-    pos_Outputs_wrapper(u0, u1, u2, u3, u4, u5, y0);
+    pos_Outputs_wrapper(u0, u1, u2, u3, u4, u5, u6, y0);
 
 }
 

@@ -37,6 +37,7 @@ void pos_Outputs_wrapper(const real_T *u0,
 			const real_T *u3,
 			const real_T *u4,
 			const real_T *u5,
+			const real_T *u6,
 			real_T *y0)
 {
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_BEGIN --- EDIT HERE TO _END */
@@ -46,7 +47,7 @@ nc=u2[0];
 cheak=u3[0];
 dU=u4[0];
 deltaU=u5[0];
-      
+param = u6[0];     
 
 WriteFunc();
 /* %%%-SFUNWIZ_wrapper_Outputs_Changes_END --- EDIT HERE TO _BEGIN */

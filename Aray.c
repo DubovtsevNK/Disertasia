@@ -12,6 +12,7 @@ float cheak=0;
 float dU=0;
 float old_U=0;
 float old_U2=0;
+float param;
 
 
 void WriteFunc()
@@ -39,7 +40,8 @@ void WriteFunc()
 	fprintf(fp,"%f;",dU);
 	fprintf(fp,"%f;",cheak);
 	fprintf(fp,"%f;",deltaU);
-	fprintf(fp,"%f\n",old_U2);
+	fprintf(fp,"%f;",old_U2);
+	fprintf(fp,"%f\n",param);
 	
 	}
 	old_U2=old_U;
