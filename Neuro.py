@@ -19,7 +19,7 @@ for element_list in zad:
     list_fl.append(float(element_list[0]))#)    #0-UZ\1
     list_fl.append(float(element_list[1]))#/10)   #1-U\2
     #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
-    list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
     #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
     list_fl.append(float(element_list[5]))  # /35) #5 - t
     list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
@@ -46,7 +46,7 @@ for element_list in zad:
     list_fl.append(float(element_list[0]))#)    #0-UZ\1
     list_fl.append(float(element_list[1]))#/10)   #1-U\2
     #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
-    list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
     #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
     list_fl.append(float(element_list[5]))  # /35) #5 - t
     list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
@@ -72,7 +72,7 @@ print(cd)
 
 print(cf)
 model = keras.Sequential()
-model.add(Dense(20, input_shape=(6,), activation='sigmoid',use_bias=False))
+model.add(Dense(20, input_shape=(5,), activation='sigmoid',use_bias=False))
 model.add(Dense(15,activation='sigmoid',use_bias=False))
 model.add(Dense(1,activation='tanh',use_bias=False))
 
