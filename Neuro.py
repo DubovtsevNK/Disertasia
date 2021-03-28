@@ -34,6 +34,7 @@ for element_list in zad:
 #ych_float.append([0.8])
 
 f.close()
+
 zad = list()
 f = open("data1faze3setiR05.xls", "r")
 
@@ -60,6 +61,83 @@ for element_list in zad:
 
 f.close()
 
+zad = list()
+f = open("data1faze3setiR15.xls", "r")
+
+for line in f:
+    zad.append((line.strip().split(";")))
+
+for element_list in zad:
+    list_fl = []
+    list_ych = []
+    list_fl.append(float(element_list[0]))#)    #0-UZ\1
+    list_fl.append(float(element_list[1]))#/10)   #1-U\2
+    #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
+    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
+    list_fl.append(float(element_list[5]))  # /35) #5 - t
+    list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
+    #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
+    list_ych.append(float(element_list[2]))#/35)   #2 - Unc
+    # for element in element_list:
+    #     list_fl.append(float(element))
+    zad_float.append(list_fl)
+    ych_float.append(list_ych)
+
+f.close()
+
+zad = list()
+f = open("data1faze3setiR2.xls", "r")
+
+for line in f:
+    zad.append((line.strip().split(";")))
+
+for element_list in zad:
+    list_fl = []
+    list_ych = []
+    list_fl.append(float(element_list[0]))#)    #0-UZ\1
+    list_fl.append(float(element_list[1]))#/10)   #1-U\2
+    #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
+    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
+    list_fl.append(float(element_list[5]))  # /35) #5 - t
+    list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
+    #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
+    list_ych.append(float(element_list[2]))#/35)   #2 - Unc
+    # for element in element_list:
+    #     list_fl.append(float(element))
+    zad_float.append(list_fl)
+    ych_float.append(list_ych)
+
+f.close()
+
+zad = list()
+f = open("data1faze3setiR1.xls", "r")
+
+for line in f:
+    zad.append((line.strip().split(";")))
+
+for element_list in zad:
+    list_fl = []
+    list_ych = []
+    list_fl.append(float(element_list[0]))#)    #0-UZ\1
+    list_fl.append(float(element_list[1]))#/10)   #1-U\2
+    #list_fl.append(float(element_list[2]))#/35)  #2 - Unc
+    #list_fl.append(float(element_list[3]))  # /35) #3 - oldU
+    #list_fl.append(float(element_list[4]))  # /35) #4 - dU\45
+    list_fl.append(float(element_list[5]))  # /35) #5 - t
+    list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
+    #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
+    list_ych.append(float(element_list[2]))#/35)   #2 - Unc
+    # for element in element_list:
+    #     list_fl.append(float(element))
+    zad_float.append(list_fl)
+    ych_float.append(list_ych)
+
+f.close()
 # print(zad_float)
 # print(ych_float)
 # c = np.array(zad_float , ndmin=3).T

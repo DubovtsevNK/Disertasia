@@ -19,17 +19,18 @@ void WriteFunc()
 {
 	if(!otf)
 	{
-		fp = fopen("data1faze3setiR05.xls", "w+");
+		fp = fopen("data1faze3setiR2.xls", "w+");
 		otf=1;
-		param=0;
+		
 	}
-	else param=param/3;
+	
 	
 	Uz=Uz/100;
 	U=U/105;
 	nc=nc/3700;
 	dU=dU/6.3;
 	deltaU=deltaU/100;
+	param=param/2;
 	
 	if(cheak>=1)
 	{
