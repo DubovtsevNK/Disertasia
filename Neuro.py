@@ -152,7 +152,7 @@ print(cf)
 model = keras.Sequential()
 model.add(Dense(20, input_shape=(5,), activation='sigmoid',use_bias=False))
 model.add(Dense(15,activation='sigmoid',use_bias=False))
-model.add(Dense(1,activation='tanh',use_bias=False))
+model.add(Dense(1,activation='sigmoid',use_bias=False))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
@@ -179,16 +179,16 @@ print(model.get_weights())
 otevt = input("Сохранить модель? y|n")
 if otevt == "y":
     dataW1 = {'w1': model.layers[0].get_weights()[0].tolist()}
-    #dataB1 = {'b1': model.layers[0].get_weights()[1].tolist()}
+   # dataB1 = {'b1': model.layers[0].get_weights()[1].tolist()}
     dataW2 = {'w2': model.layers[1].get_weights()[0].tolist()}
    # dataB2 = {'b2': model.layers[1].get_weights()[1].tolist()}
     dataW3 = {'w3': model.layers[2].get_weights()[0].tolist()}
-    #dataB3 = {'b3': model.layers[2].get_weights()[1].tolist()}
+   # dataB3 = {'b3': model.layers[2].get_weights()[1].tolist()}
     m4p.savemat('w1.mat', dataW1)
-    #m4p.savemat('b1.mat', dataB1)
+   # m4p.savemat('b1.mat', dataB1)
     m4p.savemat('w2.mat', dataW2)
-    #m4p.savemat('b2.mat', dataB2)
+   # m4p.savemat('b2.mat', dataB2)
     m4p.savemat('w3.mat', dataW3)
-    #m4p.savemat('b3.mat', dataB3)
+   # m4p.savemat('b3.mat', dataB3)
     model.save("my_model.h5")
 

@@ -12,7 +12,7 @@ model = load_model("my_model.h5")
 
 zad = list()
 
-f = open("data1faze3setiR05.xls", "r")
+f = open("data1faze3seti.xls", "r")
 zad_float = []
 ych_float: List[Union[Union[List[Any], list], Any]] = []
 for line in f:
@@ -29,6 +29,7 @@ for element_list in zad:
     list_fl.append(float(element_list[5]))  # /35) #5 - t
     list_fl.append(float(element_list[6]))  # /35) #6 - deltaU
     #list_fl.append(float(element_list[7]))  # /35) #6 - oldU2
+    list_fl.append(float(element_list[8]))  # /35) #6 - Param
     list_ych.append(float(element_list[2]))#/35)   #2 - Unc
     # for element in element_list:
     #     list_fl.append(float(element))

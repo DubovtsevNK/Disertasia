@@ -19,7 +19,7 @@ void WriteFunc()
 {
 	if(!otf)
 	{
-		fp = fopen("data1faze3setiR2.xls", "w+");
+		fp = fopen("data1faze3seti.xls", "w+");
 		otf=1;
 		
 	}
