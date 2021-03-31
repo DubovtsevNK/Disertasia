@@ -19,20 +19,21 @@ void WriteFunc()
 {
 	if(!otf)
 	{
-		fp = fopen("data1faze3seti.xls", "w+");
+		//fp = fopen("data1faze3seti.xls", "w+");
+		fp = fopen("dvig5.xls", "w+");
 		otf=1;
 		
 	}
 	
 	
-	Uz=Uz/100;
-	U=U/105;
-	nc=nc/3700;
-	dU=dU/6.3;
-	deltaU=deltaU/100;
-	param=param/2;
+	Uz=Uz/185;
+	U=U/185;
+	nc=nc/460;
+	dU=dU/1;
+	deltaU=deltaU/13;
+	param=param/100;
 	
-	if(cheak>=1)
+	if(cheak>2.5)
 	{
 	fclose(fp);
 	}
