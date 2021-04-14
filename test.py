@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras.layers import Dense
 import mat4py as m4p
+
 zad = list()
 
-#f = open("data.xls", "r")
-zad_float = [[0,0],[0,1],[1,0],[1,1]]
-ych_float = [[0],[1],[1],[0]]
-
+# f = open("data.xls", "r")
+zad_float = [[0, 0], [0, 1], [1, 0], [1, 1]]
+ych_float = [[0], [1], [1], [0]]
 
 # print(zad_float)
 # print(ych_float)
@@ -24,8 +24,8 @@ print(cd)
 print(cf)
 model = keras.Sequential()
 model.add(Dense(4, input_shape=(2,), activation='sigmoid'))
-model.add(Dense(4,activation='sigmoid'))
-model.add(Dense(1,activation='sigmoid'))
+model.add(Dense(4, activation='sigmoid'))
+model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='mean_squared_error', optimizer=keras.optimizers.Adam(0.1))
 
@@ -58,7 +58,7 @@ plt.show()
 # m4p.savemat('w2.mat', dataW2)
 # m4p.savemat('b2.mat', dataB2)
 
-#print(first_layer_weights)
+# print(first_layer_weights)
 print(model.get_weights())
 # otevt = input("Сохранить модель и файлы? y|n")
 # if otevt == "y":
